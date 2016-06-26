@@ -2,9 +2,11 @@
 	<h1 class="title"><%= @post.title %></h1>
 	<p class="date">
 		Submitted <%= time_ago_in_words(@post.created_at) %> Ago By <%= @post.user.email %>
-		<% if @post.user == current_user %>
+		<% if user_signed_in? %>
 		| <%= @post.get_upvotes.size %> <%= link_to "Like", like_post_path(@post), method: :put %>
 		| <%= link_to "Dislike", dislike_post_path(@post), method: :put %>
+		<% end %>
+		<% if @post.user == current_user %>
 		| <%= link_to 'Edit', edit_post_path(@post) %> |
 		  <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
 	  <% end %>
@@ -15,7 +17,7 @@
 	<% if user_signed_in? %>
 		<h2><%= @post.comments.count %> Comments</h2>
 		<%= render @post.comments %>
-		<h3>Add a comment:</h3>
+		<h3>Add a Comment:</h3>
 		<%= render "comments/form" %>
 	<% else %>
 		Please Login
