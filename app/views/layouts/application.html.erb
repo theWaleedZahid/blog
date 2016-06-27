@@ -28,6 +28,7 @@
 			<li><a href="https://twitter.com/waleedzahid_">Twitter</a></li>
 			<li><a href="https://github.com/waleedzahid106a">Github</a></li>
 			<li><a href="mailto:waleed.zahid654@gmail.com">Email</a></li>
+			<li><a href="/terms">Terms and Conditions</a></li>
 		</ul>
 
 		<% if !user_signed_in? %>
@@ -41,6 +42,8 @@
 				<p>All Posts</p>
 			<% elsif current_page?(about_path) %>
 				<p>About</p>
+			<% elsif current_page?(terms_path) %>
+				<p>Terms and Conditions</p>
 			<% else %>
 				<%= link_to "Back to All Posts", root_path %>
 			<% end %>
