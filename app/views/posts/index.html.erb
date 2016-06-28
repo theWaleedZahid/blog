@@ -4,3 +4,4 @@
 		<p class="date"><%= post.created_at.strftime("%B %d, %Y") %></p>
 	</div>
 <% end %>
+<div class="apple_pagination"><%= will_paginate @posts %></div>
