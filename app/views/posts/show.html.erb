@@ -1,7 +1,7 @@
 <div id="post_content">
 	<h1 class="title"><%= @post.title %></h1>
 	<p class="date">
-		Submitted <%= time_ago_in_words(@post.created_at) %> Ago By <%= @post.user.email %>
+		Submitted <%= time_ago_in_words(@post.created_at) %> Ago By <%= link_to @post.user.fullname, users_path(@post.user.id)%>
 		<% if user_signed_in? %>
 		| <%= @post.get_upvotes.size %> <%= link_to "Like", like_post_path(@post), method: :put %>
 		| <%= link_to "Dislike", dislike_post_path(@post), method: :put %>
