@@ -46,9 +46,6 @@
 			<% else %>
 				<%= link_to "Back to All Posts", root_path %>
 			<% end %>
-			<% if user_signed_in? && current_page?(root_path) %>
-				<p>													Welcome <%= current_user.fullname.match(" ").pre_match %></p>
-			<% end %>	
 			<% if user_signed_in? %>
 				<div class="buttons">
 					<button class="button"><%= link_to "My Profile", users_path(current_user.id) %></button>
