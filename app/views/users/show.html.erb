@@ -4,7 +4,7 @@
 <h3>User ID:<%= @user.id %></h3>
 <h3>User Name:<%= @user.username %></h3>
 <h3>Account Created at: <%= @user.created_at %></h3>
-<h1><%= @user.fullname.match(" ").pre_match %>'s Posts</h1>
+<h1>Posts</h1>
 <% if @user.posts.empty? %>
 <h3>No Posts</h3>
 <% else %>

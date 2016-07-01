@@ -49,9 +49,9 @@
 			<% end %>
 			<% if user_signed_in? %>
 				<div class="buttons">
-					<button class="button"><%= link_to "My Profile", users_path(current_user.id) %></button>
+					<button class="button"><%= link_to "My Profile", users_path(current_user.username) %></button>
 					<button class="button"><%= link_to "New Post", new_post_path %></button>
-					<button class="button"><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></button>
+					<button class="button">Log Out</button>
 				</div>
 			<% end %>
 		</div>
