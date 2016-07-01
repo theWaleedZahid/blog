@@ -11,7 +11,7 @@
 <div class="post_wrapper">
    <% @user.posts.each do |p| %>
       <h3 class="title"><%= link_to p.title,post_path(p.id) %></h3>
-      <p class="date"><%= p.created_at.strftime("%B %d, %Y") %></p>
+      <p class="date"><%= p.created_at.strftime("%B %d, %Y") %></p><br>
    <% end %>
 </div>   
 <% end %>   
