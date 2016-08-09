@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
 		if @post.save
 			redirect_to @post
+			flash[:alert] = "Post Successfully Created."
 		else
 			render 'new'
 		end
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
     def update
 		if @post.update(post_params)
 			redirect_to @post
+			flash[:alert] = "Post Successfully Updated."
 		else
 			render 'edit'
 		end
@@ -34,16 +36,19 @@ class PostsController < ApplicationController
     def destroy
 		@post.destroy
 		redirect_to root_path
+		flash[:alert] = "Post Successfully Deleted."
     end
     def upvote
         @post = Post.find_by_slug(params[:id])
         @post.upvote_by current_user
         redirect_to post_path
+        flash[:alert] = "Post Successfully Liked."
     end
     def downvote
         @post = Post.find_by_slug(params[:id])
         @post.downvote_by current_user
         redirect_to post_path
+        flash[:alert] = "Post Successfully Disliked."
     end
     private
     def find_post
