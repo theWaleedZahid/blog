@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     end  
   end
   root "posts#index"
-
   get '/about', to: 'pages#about'
   get '/terms', to: 'pages#terms'
-  get 'users/:id', to: 'users#show', as: :users
+  get 'u/:id', to: 'users#show', as: :users
 end

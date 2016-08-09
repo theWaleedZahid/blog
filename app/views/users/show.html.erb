@@ -9,10 +9,10 @@
 <h3>No Posts</h3>
 <% else %>
 <div class="post_wrapper">
-   <% @user.posts.each do |p| %>
-      <h3 class="title"><%= link_to p.title,post_path(p.id) %></h3>
-      <p class="date"><%= p.created_at.strftime("%B %d, %Y") %></p><br>
-   <% end %>
+<% @user.posts.each do |p| %>
+<h3 class="title"><%= link_to p.title, post_path(p.slug) %></h3>
+<p class="date"><%= p.created_at.strftime("%B %d, %Y") %></p><br>
+<% end %>
 </div>   
 <% end %>   
 </div>

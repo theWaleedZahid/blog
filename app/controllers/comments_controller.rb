@@ -1,15 +1,14 @@
 class CommentsController < ApplicationController
 	def create
-		@post = Post.find(params[:post_id])
+		@post = Post.find_by_slug(params[:post_id])
 		
-		@comment = @post.comments.create(params[:comment].permit(:name, :body))
+		@comment = @post.comments.create(params[:comment].permit(:name, :body, :email))
 		redirect_to post_path(@post)
 	end
 	def destroy
-		@post = Post.find(params[:post_id])
+		@post = Post.find_by_slug(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 		@comment.destroy
-
 		redirect_to post_path(@post)
 	end
 end
