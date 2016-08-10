@@ -2,7 +2,7 @@
 <h1><%= @user.fullname %>(@<%= @user.username %>)</h1>
 <h2>Email Address:<%= @user.email %></h2>
 <h3>User ID:<%= @user.id %></h3>
-<h3>Account Created at: <%= @user.created_at %></h3>
+<h3>Account Created at: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
 <h1>Posts</h1>
 <% if @user.posts.empty? %>
 <h3>No Posts</h3>
@@ -10,7 +10,7 @@
 <div class="post_wrapper">
 <% @user.posts.each do |p| %>
 <h3 class="title"><%= link_to p.title, post_path(p.slug) %></h3>
-<p class="date"><%= p.created_at.strftime("%B %d, %Y") %></p><br>
+<p class="date"><i class="fa fa-clock-o" aria-hidden="true"></i> <%= p.created_at.strftime("%B %d, %Y") %> <i class="fa fa-user" aria-hidden="true"></i> <%= p.user.fullname %> <i class="fa fa-comment-o" aria-hidden="true"></i> <%= p.comments.count %> <i class="fa fa-heart-o" aria-hidden="true"></i> <%= p.get_upvotes.size %></p>
 <% end %>
 </div>   
 <% end %>   

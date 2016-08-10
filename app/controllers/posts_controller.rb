@@ -43,13 +43,11 @@ class PostsController < ApplicationController
         @post = Post.find_by_slug(params[:id])
         @post.upvote_by current_user
         redirect_to post_path
-        flash[:alert] = "Post Successfully Liked."
     end
     def downvote
         @post = Post.find_by_slug(params[:id])
         @post.downvote_by current_user
         redirect_to post_path
-        flash[:alert] = "Post Successfully Disliked."
     end
     private
     def find_post
