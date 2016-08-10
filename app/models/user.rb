@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   def update_slug
-	  self.slug=username.parameterize
+	  self.slug="@"+username.parameterize
 	end
 	
 	def to_param
