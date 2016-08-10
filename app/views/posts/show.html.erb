@@ -21,7 +21,7 @@
 			<h3>Add a Comment:</h3>
 			<%= render "comments/form" %>
 		<% else %>
-			Please Login
+			Please <%= link_to "Login", new_user_session_path %> to Comment
 		<% end %>	
 		</div>
 	</div>
