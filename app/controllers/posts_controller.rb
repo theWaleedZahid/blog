@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
     before_action :find_post, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
-    def delete_image
-    @post.image.destroy 
-    @post.image.clear 
-    end
     def index
         @posts=Post.all.order("created_at DESC")
+        if params[:search]
+            @posts = Post.where(["title LIKE ?","%#{params[:search]}%"])
+        else
+            @posts = Post.all.order('created_at DESC')
+        end
     end
     def new
         @post = current_user.posts.build
