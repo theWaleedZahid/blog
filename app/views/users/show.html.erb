@@ -1,8 +1,10 @@
 <div id="page_wrapper">
+<%= image_tag @user.avatar.url(:profile) %>
 <h1><%= @user.fullname %>(@<%= @user.username %>)</h1>
 <h2>Email Address:<%= @user.email %></h2>
 <h3>User ID:<%= @user.id %></h3>
 <h3>Account Created at: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+<%= button_to "Edit User", edit_user_registration_path %>
 <h1>Posts</h1>
 <% if @user.posts.empty? %>
 <h3>No Posts</h3>

@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  def update_slug
+  has_attached_file :avatar, styles: { profile: "300x300>", thumb: "40x40>" }, default_url: "/images/:style/missing.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+    def update_slug
 	  self.slug="@"+username.parameterize
 	end
 	
